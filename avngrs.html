@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AVNGRS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+<style>
+* {
+	margin: 0; padding: 0;
+	
+}
+body {
+	width: 100vh;
+	height: 100vh;
+	overflow: hidden;
+	background: url(images/avengers-poster.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'Russo One', sans-serif;
+}
+.wrapper {
+	position: absolute;
+	top: 47%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 90vw;
+	height: 85vh;
+	overflow: hidden;
+	z-index: 80;
+}
+a {
+	text-decoration: none;
+}
+/**************************** LOADER **********************************************/
+.loader {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: 500;
+	background-color: black;
+	transition: .9s;
+	opacity: 1;
+}
+.loader h3 {
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 40px;
+	animation: glow 1s infinite;
+}
+@keyframes glow {
+	0% {opacity: 1;}
+	50% {opacity: 0.1;}
+	100% {opacity: 1;}
+}
+.loader .logo {
+	position: absolute;
+	height: 55%;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	opacity: .1;
+	transform: translate(-50%, -50%);
+}
+/**************************** LOADER END*******************************************/
+/**************************** MENU ************************************************/
+.mainMenu {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	border-left: 1px solid rgba(255,255,255,.7);
+	overflow: hidden;
+}
+.buttons {
+	position: absolute;
+	width: auto;
+	top: 0%;
+	color: white;
+	font-size: 17px;
+	font-weight: 900;
+}
+.menuBtn {
+	position: relative;
+	text-transform: uppercase;
+	line-height: 30px;
+	width: 100px;
+	padding: 2px 12px;
+	white-space: nowrap;
+	//background: radial-gradient(rgba(1,1,1,.9) 50%, rgba(1,1,1,0) 80%);
+}
+/***** before *****/
+.menuBtn:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: -20%;
+	transform: translate(0,-50%);
+	width: 0%;
+	height: 100%;
+	border-bottom: 1px solid rgba(255,255,255,0);
+	background-color: rgba(238,0,238,.9);
+	opacity: 1;
+	z-index:-1;
+	transition: .8s linear;
+	
+	//border-radius:  0 100% 100% 0;
+}
+.menuBtn:active:before {
+	background-color: darkgray;
+}
+.menuBtn:hover:before{
+	transition-duration: 0s;
+	opacity: 1;
+	width: 150%;
+	background-color: rgba(238,0,238,.3);
+	border-bottom: 1px solid rgba(255,255,255,1);
+}
+/***** after *******/
+.menuBtn:after{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: -20%;
+	transform: translate(0,-50%);
+	width: 0%;
+	height: 100%;
+	border-right: 70px solid rgba(238,0,238,0);
+	z-index: -1;
+	transition: 1s cubic-bezier(.85,.18,.76,.77) ;
+}
+
+.menuBtn:hover:after{
+	transition-duration: 0s;
+	width: 150%;
+	border-right: 0px solid rgba(238,0,238,.5);
+}
+/**************************** MENU END ********************************************/
+/**************************** ABOUT PAGE ******************************************/
+.aboutPageWrapper {
+	position: absolute;
+	top: 0;
+	left: -110%;
+	width: 100%;
+	height: 100%;
+	transition: 1s;
+	overflow: hidden;
+	background-color: gray;
+}
+.aboutPage {
+	position: absolute;
+	width: 80%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.aboutPageWrapper .logo,.partnersPageWrapper .logo,.buyTicketsPageWrapper .logo {
+	position: absolute;
+	height: 85%;
+	width: auto;
+	top: 50%;
+	left: -1vw;
+	opacity: .1;
+	transform: translate(0, -50%) rotate(-10deg);
+}
+.aboutPageWrapper .groot {
+	position: absolute;
+	height: 110%;
+	width: auto;
+	bottom: 0px;
+	right: 0vw;
+	//mix-blend-mode: screen;
+	z-index: 1;
+}
+.aboutPageWrapper .groot2 {
+	position: absolute;
+	height: 300%;
+	top: -40%;
+	opacity: .4;
+	right: -5vw;
+	z-index: 0;
+}
+.aboutPage p {
+	width: 60%;
+	text-align: justify;
+	font-size: 12px;
+	margin-top: 20px;
+	z-index: 10;
+}
+/**************************** ABOUT PAGE END **************************************/
+/**************************** IMAGE SLIDER*****************************************/
+.sliderWrapper {
+	position: absolute;
+	top: 0;
+	left: -200%;
+	width: 100vw;
+	height: 100vh;
+	transition: 1s;
+	overflow: hidden;
+	z-index: 80;
+}
+.slider {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	overflow: hidden;
+}
+.slide {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transition: .5s;
+	transform: translate(0, 0);
+	background: purple;
+}
+
+.slider h1 {
+	color: gray;
+	font-size: 30px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.slide img {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%,0);
+		height: 100%;
+		width: auto;
+		
+}
+.prevButton, .nextButton {
+	position: absolute;
+	top: 0;
+	width: 6vw;
+	height: 100vh;
+	font-family: FontAwesome;
+	z-index: 10;
+}
+.prevButton {
+	left: 0;
+}
+.nextButton {
+	right: 0;
+}
+.arrowIcon {
+	position: relative;
+	text-align: center;
+	height: 10px;
+	top: 45%;
+	font-size: 40px;
+	color: white;
+}
+.closeButton{
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	transition: .3s;
+	font-family: FontAwesome;
+	color: white;
+	font-size: 20px;
+	z-index: 20;
+}
+i {
+	font-style: normal;
+}
+.first {
+	transform: translate(-200%, 0%);
+	z-index: -10;
+}
+.second {
+	transform: translate(-100%, 0%);
+	z-index: 0;
+}
+.third {
+	transform: translate(0%, 0%);
+	z-index: 10;
+}
+.fourth {
+	transform: translate(100%, 0%);
+	z-index: 0;
+}
+.fifth {
+	transform: translate(200%, 0%);
+	z-index: -10;
+}
+/**************************** IMAGE SLIDER END ************************************/
+/**************************** TRAILER *********************************************/
+.trailerPageWrapper {
+	position: absolute;
+	top: 0;
+	left: -150%;
+	width: 100%;
+	height: 100%;
+	transition: 1s;
+	overflow: hidden;
+	background-color: black;
+}
+.trailerPage {
+	position: absolute;
+	width: 80%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+/**************************** TRAILER END *****************************************/
+/**************************** PARTNERS ********************************************/
+.partnersPageWrapper {
+	position: absolute;
+	top: 0;
+	left: -110%;
+	width: 100%;
+	height: 100%;
+	transition: 1s;
+	overflow: hidden;
+	background-color: white;
+}
+.partnersPageWrapper .closeButton{
+	color: black;
+}
+.partnersPage {
+	position: absolute;
+	width: 60%;
+	height: 80%;
+	left: 5%;
+	top: 10%;
+	display: grid;
+	grid-template-columns: 49% 49%;
+	grid-template-rows: 33% auto 33%;
+}
+.partnersLogo {
+	//border: 1px solid black;
+	position: relative;
+}
+.partnersLogo img{
+	width: 100%;
+	height: 100%;
+}
+.partnersPageWrapper .captain {
+	position: absolute;
+	top: 50%; 
+	transform: translate(0, -50%);
+	height: 95%;
+	width: auto;
+	bottom: 0px;
+	right: 0vw;
+	//mix-blend-mode: screen;
+	z-index: 5;
+}
+.partnersPageWrapper .captain2 {
+	position: absolute;
+	top: 145%; 
+	transform: translate(0, -50%);
+	height: 300%;
+	width: auto;
+	right: 0vw;
+	//mix-blend-mode: screen;
+	opacity: 0.4;
+	z-index: 4;
+}
+.partnersPage img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: auto;
+}
+/**************************** PARTNERS END ****************************************/
+/**************************** BUY TICKETS *****************************************/
+.buyTicketsPageWrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-45%, -50%) scale(0);
+	width: 100%;
+	height: 100%;
+	transition: 1s;
+	overflow: hidden;
+	background-color: lightgray;
+}
+.buyTicketsPage {
+	position: absolute;
+	width: 80%;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-45%, -50%);
+}
+.buyTicketsPageWrapper .closeButton {
+	color: black;
+}
+.buyTicketsPage p {
+	width: 60%;
+}
+.buyTicketsPageWrapper .thanos {
+	position: absolute;
+	height: 90%;
+	width: auto;
+	top: 50%;
+	transform: translate(0, -50%);
+	right: 2vw;
+	z-index: 5;
+}
+.buyTicketsPageWrapper .thanos2 {
+	position: absolute;
+	height: 250%;
+	width: auto;
+	top: -5%;
+	right: 7vw;
+	opacity: 0.4;
+	z-index: 4;
+}
+/**************************** BUY TICKETS END *************************************/
+/**************************** FOOTER **********************************************/
+.footer {
+	position: absolute;
+	top: 96vh;
+	bottom: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	font-size: 11px;
+	line-height: 4vh;
+	text-align: center;
+	transition-duration: .5s;
+	overflow: hidden;
+	z-index: 90;
+}
+.footer span {
+	position: relative;
+	color: white;
+	width: auto;
+	//border: 1px solid white;
+	margin: 1%;
+	z-index:100;
+}
+
+.terms:before, .policy:before, .agreement:before {
+	content:'';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 0%;
+	height: 250%;
+	//background-color: blue;
+	border-bottom: 5px solid white;
+	z-index: 10;
+	transition: .3s;
+}
+.terms:hover:before, .policy:hover:before, .agreement:hover:before {
+	width: 80%;
+}
+.activeFooter:before {
+	width: 80%;
+}
+.footer .closeButton {
+	font-size: 20px;
+	top: -5px;
+	right: 5px;
+	display: none;
+}
+.footer h1 {
+	line-height: 40px;
+}
+.termsContent, .policyContent, .agreementContent{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	width: 70%;
+	transform: translate(-50%,-50%);
+	height: auto;
+	color: white;
+	display: none;
+	line-height: 12px;
+	text-align: justify;
+}
+.footer .logo {
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height: 60%;
+	width: auto;
+	opacity: .3;
+}
+/**************************** FOOTER END **********************************/
+
+.socialNetworkIcons {
+	position: absolute;
+	bottom: 10vh; left:0;
+	width: 5vw; 
+	height: auto;
+	//border: 1px solid black;
+	font-family: FontAwesome;
+	text-align: center;
+	color: white;
+	transition: color .3s;
+	z-index: 1;
+	//border: 1px solid white;
+}
+
+.socialNetworkIcons i {
+	display: block;
+	transition: .3s;
+	line-height: 120%;
+	width: 5vw;
+	font-size: 30px;
+	//border: 1px solid white;
+	color: white;
+}
+a {
+	color: inherit;
+}
+.socialNetworkIcons i:hover {
+	opacity: .5;
+}
+.titleBanner {
+	position: absolute;
+	top: 5vh;
+	right: 4.5vw;
+	width: 40%;
+	z-index: 1;
+	max-width: 400px;
+}
+.title {
+	width: 100%;
+}
+.date {
+	width: 100%;
+}
+
+/**************************** MOBILE STYLES **********************************/
+@media screen and (max-width: 680px) {
+
+	body {
+		width: 100vw;
+		height: 100vh;
+		min-width: 290px;
+		min-height: 440px;
+		overflow: hidden;
+	}
+	.bodyWrapper {
+		width: 100vw;
+		height: 100vh;
+		min-width: 290px;
+		min-height: 440px;
+		overflow: hidden;
+	}
+	.wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(0, 0);
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+		min-width: 290px;
+		min-height: 440px;
+	}
+	.mainMenu {
+		border-left: 0px;
+		width: 100%;
+		height: 30px;
+		min-width: 290px;
+		background: rgba(1,1,1,.5)
+	}
+	.buttons {
+		display: grid;
+		grid-template-columns: auto auto auto auto auto;
+		grid-template-rows: auto;
+		min-width: 290px;
+		width: 95%;
+		font-size: 8px;
+		position: absolute;
+		top:0;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+	.menuBtn {
+		line-height: 30px;
+		width: auto;
+		float: left;
+		margin-left: -5px;
+		white-space: nowrap;
+		text-align: center;
+	}
+	.menuBtn:before {
+		display: none;
+	}
+	.menuBtn:after {
+		display: none;
+	}
+	.aboutPageWrapper .logo,.partnersPageWrapper .logo,.buyTicketsPageWrapper .logo {
+			position: absolute;
+			height: 70%;
+			width: auto;
+			top: 45%;
+			left: 50%;
+			opacity: .1;
+			transform: translate(-50%, -50%) rotate(-10deg);
+	}
+	.aboutPageWrapper .groot, .aboutPageWrapper .groot2, .partnersPageWrapper .captain, .partnersPageWrapper .captain2, 
+	.buyTicketsPageWrapper .thanos, .buyTicketsPageWrapper .thanos2 {
+			display: none;
+	}
+	.aboutPage span {
+		display: block;
+		position: relative;
+		width: 90%;
+		margin: 0 auto;
+	}
+	.aboutPage p {
+		width: 100%;
+		text-align: justify;
+		font-size: 12px;
+		margin-top: 20px;
+	}
+	.partnersPage {
+		width: 100%;
+		height: 80%;
+		left: 0%;
+		top: 0%;
+	}
+	.buyTicketsPageWrapper p {
+		width: 100%;
+	}
+	.footer {
+		font-size: 7.5px;
+		min-width: 290px;
+	}
+	.footer .closeButton {
+		right: 2vw;
+		top: -1px;
+	}
+	.footer .logo {
+		top: 45%;
+	}
+	.socialNetworkIcons {
+		bottom: 5vh; left: 2vw;
+		width: 4vw;
+		font-size: 27px;
+		z-index: 90;
+	}
+	.titleBanner {
+		position: absolute;
+		top: 40px;
+		right: 1%;
+		width: 40%;
+	}
+}
+/**************************** MOBILE STYLES END ******************************/
+</style>
+<body>
+<div class='bodyWrapper'>
+<div class='loader'>
+		<h3>Loading...</h3>
+		<img class='logo' src='images/avengers_logo.png'>
+</div>
+<div class='wrapper'>
+
+<!----------------------------MENU----------------------------------------------->
+<div class='mainMenu'>
+	<div class='buttons'>
+		<div class='menuBtn btn1'>about</div>
+		<div class='menuBtn btn2'>posters</div>
+		<div class='menuBtn btn3'>trailer</div>
+		<div class='menuBtn btn4'>partners</div>
+		<div class='menuBtn btn5'>get tickets</div>
+	</div>
+</div>
+<!----------------------------MENU END------------------------------------------>
+
+<!----------------------------ABOUT PAGE---------------------------------------->
+<div class='aboutPageWrapper'>
+	<div class='aboutPage'>
+		<span>
+		<h1>Avengers: Infinity War</h1>
+		<p>As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.</p>
+		</span>
+	</div>
+	<img class='logo' src='images/avengers_logo.png'>
+	<img class='groot' src='images/avengers_teenagegroot.png'>
+	<img class='groot2' src='images/avengers_teenagegroot.png'>
+	<div class='closeButton'><i class="fas fa-times"></i></div>
+</div>
+<!----------------------------ABOUT PAGE END------------------------------------>
+
+
+<!----------------------------TRAILER PAGE-------------------------------------->
+<div class='trailerPageWrapper'>
+	<div class='trailerPage'>
+		<div class="videoWrapper">
+    	<!-- Copy & Pasted from YouTube -->
+    	<iframe width="560" height="315" src="https://www.youtube.com/embed/QwievZ1Tx-8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+	</div>
+	<div class='closeButton'><i class="fas fa-times"></i></div>
+</div>
+<!----------------------------TRAILER PAGE END---------------------------------->
+<!----------------------------PARTNERS PAGE------------------------------------->
+<div class='partnersPageWrapper'>
+	<div class='partnersPage'>
+		<div class='partnersLogo'><img src='images/logo_cocacola.png'></div>
+		<div class='partnersLogo'><img src='images/logo_redbull.png'></div>
+		<div class='partnersLogo'><img src='images/logo_soundcloud.jpg'></div>
+		<div class='partnersLogo'><img src='images/logo_adidas.png'></div>
+		<div class='partnersLogo'><img src='images/logo_pepsi.png'></div>
+		<div class='partnersLogo'><img src='images/logo_nvidia.png'></div>
+	</div>
+	<img class='logo' src='images/avengers_logo.png'>
+	<img class='captain' src='images/avengers_captain.png'>
+	<img class='captain2' src='images/avengers_captain.png'>
+	
+	<div class='closeButton'><i class="fas fa-times"></i></div>
+</div>
+<!----------------------------PARTNERS PAGE END--------------------------------->
+<!----------------------------BUY TICKETS PAGE---------------------------------->
+<div class='buyTicketsPageWrapper'>
+	<div class='buyTicketsPage'>
+		<h1>Buy Tickets</h1>
+		<p>this would take customers to an external page to buy tickets in the nearest theatre</p>
+	</div>
+	<img class='logo' src='images/avengers_logo.png'>
+	<img class='thanos' src='images/avengers_thanos.png'>
+	<img class='thanos2' src='images/avengers_thanos.png'>
+	<div class='closeButton'><i class="fas fa-times"></i></div>
+</div>
+<!----------------------------BUY TICKETS PAGE END------------------------------>
+
+</div><!-- WRAPPER END -->
+<!----------------------------IMAGE SLIDER ------------------------------------->
+<div class='sliderWrapper'>
+	<div class='slider'>
+		<div class='slide slide1 first'><img src='images/avengers-poster1.jpg'></div>
+		<div class='slide slide2 second'><img src='images/avengers-poster2.jpg'></div>
+		<div class='slide slide3 third'><img src='images/avengers-poster3.jpg'></div>
+		<div class='slide slide4 fourth'><img src='images/avengers-poster4.jpg'></div>
+		<div class='slide slide5 fifth'><img src='images/avengers-poster5.jpg'></div>
+	</div>
+	<div class='prevButton'>
+		<div class='arrowIcon'>
+			<i class="fas fa-angle-left"></i>
+		</div>
+	</div>
+	<div class='nextButton'>
+		<div class='arrowIcon'>
+			<i class="fas fa-angle-right"></i>
+		</div>
+	</div>
+	<div class='closeButton'><i class="fas fa-times"></i></div>
+</div>
+<!----------------------------IMAGE SLIDER END---------------------------------->
+<!----------------------------FOOTER-------------------------------------------->
+<div class='footer'>
+		<span class='terms'>Terms of Use</span>
+		<span class='policy'>Privacy Policy</span>
+		<span class='agreement'>License Agreement</span>
+		<span>2018 MARVEL</span>
+		<div class='closeButton'><i class="fas fa-times"></i></div>
+		<div class='termsContent'>
+			<h1>Terms of Use</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+		</div>
+		<div class='policyContent'>
+			<h1>Privacy Policy</h1>
+			<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat</p>
+		</div>
+		<div class='agreementContent'>
+			<h1>License Agreement</h1>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+			<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+		</div>
+		<img class='logo' src='images/avengers_logo.png'>
+</div>
+
+<!----------------------------FOOTER END---------------------------------------->
+<div class='socialNetworkIcons'>
+		<div class='links2'>
+			<a href='https://www.facebook.com/avengers/' target="_blank"><i class="fab fa-facebook-square"></i></a>
+			<a href='https://www.instagram.com/avengers/' target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href='https://twitter.com/Avengers' target="_blank"><i class="fab fa-twitter-square"></i></a>
+		</div>
+</div>
+<div class='titleBanner'>
+	<img class='date' src='images/date.png'>
+	<img class='title' src='images/title.png'>
+</div>	
+</div>
+<script>
+///////////////////////////////VARIABLES/////////////////////////////////////////
+const sliderWrapper = document.querySelector('.sliderWrapper');
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const currentSlide = document.querySelector('.currentSlide');
+
+const aboutPageWrapper = document.querySelector('.aboutPageWrapper');
+const trailerPageWrapper = document.querySelector('.trailerPageWrapper');
+const partnersPageWrapper = document.querySelector('.partnersPageWrapper');
+const buyTicketsPageWrapper = document.querySelector('.buyTicketsPageWrapper');
+
+const footer = document.querySelector('.footer');
+const terms = document.querySelector('.terms');
+const policy = document.querySelector('.policy');
+const agreement = document.querySelector('.agreement');
+const footerCloseButton = document.querySelector('.footer .closeButton');
+
+const prevButton = document.querySelector('.prevButton');
+const nextButton = document.querySelector('.nextButton');
+
+const slide1 = document.querySelector('.slide1');
+const slide2 = document.querySelector('.slide2');
+const slide3 = document.querySelector('.slide3');
+const slide4 = document.querySelector('.slide4');
+const slide5 = document.querySelector('.slide5');
+
+const counter = document.querySelector('.counter');
+let activeSlide = 3;
+
+///////////////////////////////VARIABLES END/////////////////////////////////////
+///////////////////////////////LOADER////////////////////////////////////////////
+const loader = document.querySelector('.loader');
+const hideLoader = function(){
+	loader.style.opacity = '0';
+	console.log('loader hidden');
+}
+const removeLoader = function(){
+	loader.style.display = 'none';
+	console.log('loader removed');
+
+}
+setTimeout(hideLoader, 3000);
+setTimeout(removeLoader, 4000);
+
+///////////////////////////////LOADE END/////////////////////////////////////////
+///////////////////////////////MENU//////////////////////////////////////////////
+const btn1 = document.querySelector('.btn1');
+const btn2 = document.querySelector('.btn2');
+const btn3 = document.querySelector('.btn3');
+const btn4 = document.querySelector('.btn4');
+const btn5 = document.querySelector('.btn5');
+
+btn1.addEventListener('click', function(){
+	aboutPageWrapper.style.left = '0%';
+})
+btn2.addEventListener('click', function(){
+	sliderWrapper.style.left = '0%';
+})
+btn3.addEventListener('click', function(){
+	trailerPageWrapper.style.left = '0%';
+})
+btn4.addEventListener('click', function(){
+	partnersPageWrapper.style.left = '0%';
+})
+btn5.addEventListener('click', function(){
+	buyTicketsPageWrapper.style.transform = 'translate(-50%, -50%) scale(1)'; 
+})
+
+/////////////////////////////////MENU END//////////////////////////////////////////
+///////////////////////////////IMAGE SLIDER////////////////////////////////////////
+
+
+const moveSlides = function(e){
+	if ((e.key == 'ArrowRight')||(e.key == 'd')||(e.key == '6')||(e.key == 'Enter')){
+		if (activeSlide<5){
+			activeSlide++
+		} else {
+			activeSlide = 1;
+		}
+	}
+	if ((e.key == 'ArrowLeft')||(e.key == 'a')||(e.key == '4')){
+		if (activeSlide>1){
+			activeSlide--
+		} else {
+			activeSlide = 5;
+		}
+	}
+	if (e.key == 'Escape'){
+		closeAllWindows();
+	}
+	if (this.classList == 'nextButton'){
+		if (activeSlide<5){
+			activeSlide++
+		} else {
+			activeSlide = 1;
+		}
+	}
+	if (this.classList == 'prevButton'){
+		if (activeSlide>1){
+			activeSlide--
+		} else {
+			activeSlide = 5;
+		}
+	}
+	for (i=0; i<slides.length; i++){
+		slides[i].classList.remove('first');
+		slides[i].classList.remove('second');
+		slides[i].classList.remove('third');
+		slides[i].classList.remove('fourth');
+		slides[i].classList.remove('fifth');
+	}
+	if (activeSlide==1){
+		slide4.classList.add('first');
+		slide5.classList.add('second');
+		slide1.classList.add('third');
+		slide2.classList.add('fourth');
+		slide3.classList.add('fifth');
+	}
+	if (activeSlide==2){
+		slide5.classList.add('first');
+		slide1.classList.add('second');
+		slide2.classList.add('third');
+		slide3.classList.add('fourth');
+		slide4.classList.add('fifth');
+	}
+	if (activeSlide==3){
+		slide1.classList.add('first');
+		slide2.classList.add('second');
+		slide3.classList.add('third');
+		slide4.classList.add('fourth');
+		slide5.classList.add('fifth');
+	}
+	if (activeSlide==4){
+		slide2.classList.add('first');
+		slide3.classList.add('second');
+		slide4.classList.add('third');
+		slide5.classList.add('fourth');
+		slide1.classList.add('fifth');
+	}
+	if (activeSlide==5){
+		slide3.classList.add('first');
+		slide4.classList.add('second');
+		slide5.classList.add('third');
+		slide1.classList.add('fourth');
+		slide2.classList.add('fifth');
+	}
+}
+nextButton.addEventListener('click', moveSlides);
+prevButton.addEventListener('click', moveSlides);
+document.addEventListener('keydown', moveSlides);
+document.addEventListener('keydown', moveSlides);
+
+///////////////////////////////IMAGE SLIDER END////////////////////////////////////////
+///////////////////////////////TRAILER/////////////////////////////////////////////////
+const iframe = document.querySelector('iframe');
+///////////////////////////////TRAILER END/////////////////////////////////////////////
+///////////////////////////////CLOSE BUTTON////////////////////////////////////////////
+const closeAllWindows = function(){
+	sliderWrapper.style.left = '-200%';
+	aboutPageWrapper.style.left = '-150%';
+	trailerPageWrapper.style.left = '-250%';
+	partnersPageWrapper.style.left = '-250%';
+	buyTicketsPageWrapper.style.transform = 'translate(-50%, -50%) scale(0)';
+	footer.style.top = '96vh';
+	footerCloseButton.style.display = 'none';
+	termsContent.style.display='none';
+	policyContent.style.display='none';
+	agreementContent.style.display='none';
+	let iframeSrc = iframe.src;
+	iframe.src = iframeSrc;
+	console.log('aa');
+}
+const closeButtons = document.querySelectorAll('.closeButton');
+closeButtons.forEach(closeButton=>closeButton.addEventListener('click', closeAllWindows))
+//footerCloseButton.addEventListener('click', closeAllWindows);
+
+
+///////////////////////////////CLOSE BUTTON END////////////////////////////////////////
+///////////////////////////////FOOTER//////////////////////////////////////////////////
+const termsContent = document.querySelector('.termsContent');
+const policyContent = document.querySelector('.policyContent');
+const agreementContent = document.querySelector('.agreementContent');
+const footerOptions = function(){
+	footer.style.top = '0vh';
+	termsContent.style.display = 'none';
+	policyContent.style.display = 'none';
+	agreementContent.style.display = 'none';
+	//console.log(footerCloseButton);
+	footerCloseButton.style.display = 'block';
+	//console.log(this.classList);
+	console.log(this.classList);
+	if (this.classList.value == 'terms'){
+		//this.classList.add('activeFooter');
+		console.log(this);
+		termsContent.style.display='block';
+	} else if (this.classList.value == 'policy'){
+	console.log(this);
+		policyContent.style.display='block';
+	} else if (this.classList.value == 'agreement'){
+	console.log(this);
+		agreementContent.style.display='block';
+	}
+}
+terms.addEventListener('click', footerOptions);
+policy.addEventListener('click', footerOptions);
+agreement.addEventListener('click', footerOptions);
+///////////////////////////////FOOTER END//////////////////////////////////////////////
+</script>
+
+</body>
+</html>
+
